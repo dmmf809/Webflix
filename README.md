@@ -9,4 +9,4 @@ This is a React based website that sends an API request to retrive data and disp
 
 ## Deployment
 
-https://dmmf809.github.io/react-app-movie/
+https://dmmf809.github.io/react-app-webflix/

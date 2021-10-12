@@ -6,11 +6,10 @@ import {
   SearchInput,
   SearchButton,
   Icon,
-  MovieTab,
-  SeriesTab,
   ErrorMsg,
 } from './styles';
 import { PageContainer, PageTitle } from '../Trending/styles';
+import { Tab } from '@mui/material';
 import axios from 'axios';
 import Content from '../../Content/Content';
 import CustomPagination from '../../Pagination/CustomPagination';
@@ -40,16 +39,27 @@ const Search = () => {
     setInput(input);
   };
 
+  const handleSearch = (e) => {
+    if (e.key === 'Enter') {
+      fetchSearch();
+      e.preventDefault();
+    }
+  };
+
   const fetchSearch = async () => {
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/search/${
-        mediaType ? 'tv' : 'movie'
-      }?api_key=${
-        process.env.REACT_APP_API_KEY
-      }&language=en-US&query=${input}&page=1&include_adult=false`
-    );
-    setSearchContent(data.results);
-    setNumOfPages(data.total_pages);
+    try {
+      const { data } = await axios.get(
+        `https://api.themoviedb.org/3/search/${
+          mediaType ? 'tv' : 'movie'
+        }?api_key=${
+          process.env.REACT_APP_API_KEY
+        }&language=en-US&query=${input}&page=1&include_adult=false`
+      );
+      setSearchContent(data.results);
+      setNumOfPages(data.total_pages);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -62,7 +72,12 @@ const Search = () => {
     <ThemeProvider theme={pageTheme}>
       <PageTitle>Search</PageTitle>
       <InputContainer>
-        <SearchInput label='Search' variant='standard' onChange={handleInput} />
+        <SearchInput
+          label='Search'
+          variant='standard'
+          onChange={handleInput}
+          onKeyPress={handleSearch}
+        />
         <SearchButton onClick={fetchSearch}>
           <Icon />
         </SearchButton>
@@ -73,8 +88,8 @@ const Search = () => {
         centered
         onChange={handleChange}
       >
-        <MovieTab label='Search Movie' />
-        <SeriesTab label='Search TV Series' />
+        <Tab label='Search Movie' />
+        <Tab label='Search TV Series' />
       </Tabs>
       <PageContainer>
         {searchContent &&

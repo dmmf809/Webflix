@@ -111,4 +111,5 @@ export const ModalScroll = styled.div``;
 
 export const ModalButton = style(Button)`
   background-color: #db2b39;
+  color: #ffff;
 `;

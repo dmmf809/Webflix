@@ -1,6 +1,6 @@
 # About
 
-This is a React based website that sends an API request to retrive data and display the fetched data through a responsive user interface using Material-UI.
+This is a React based website that sends an API request to retrive movies and TV series information and displays the fetched data through a responsive user interface using Material-UI.
 
 - Author: Daenielle May Felipe
 

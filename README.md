@@ -9,4 +9,4 @@ This is a React based website that sends an API request to retrive movies and TV
 
 ## Deployment
 
-https://dmmf809.github.io/react-app-webflix/
+https://dmmf809.github.io/Webflix/

@@ -1,0 +1,38 @@
+API key: afc0e9cbb4a717658067ffd6e49f0ec4
+
+Example API req: https://api.themoviedb.org/3/movie/550?api_key=afc0e9cbb4a717658067ffd6e49f0ec4
+
+API Read Access Token: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZmMwZTljYmI0YTcxNzY1ODA2N2ZmZDZlNDlmMGVjNCIsInN1YiI6IjYxNWNiODYzZGJmMTQ0MDA0NGMwYWZmOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._HrWaHprDnBM4r_MDFYCCn0B4knlXvVHofwMFCvBzIM
+
+
+
+
+  <ImgContainer>
+        <Button onClick={handleOpen}>{children}</Button>
+      </ImgContainer>
+      <ModalInfo open={open} onClose={handleClose} closeAfterTransition>
+        <Fade in={open}>
+          <InsideBox>
+            <Typography id='transition-modal-title' variant='h6' component='h2'>
+              Text in a modal
+            </Typography>
+            <Typography id='transition-modal-description' sx={{ mt: 2 }}>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+          </InsideBox>
+        </Fade>
+      </ModalInfo>
+
+
+
+
+
+
+  <ModalImg
+                src={
+                  content.poster_path
+                    ? `${img_500}${content.poster_path}`
+                    : `${imgUnavailable}`
+                }
+                alt={content.name || content.title}
+              />
